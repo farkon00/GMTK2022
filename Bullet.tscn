@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://art/bullet/heart.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 5 )
@@ -13,10 +14,5 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 disabled = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -5.0
-margin_top = -5.0
-margin_right = 5.0
-margin_bottom = 5.0
-rect_pivot_offset = Vector2( 3, 3 )
-color = Color( 0.368627, 0.168627, 0.168627, 1 )
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
