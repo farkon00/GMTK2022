@@ -1,3 +1,34 @@
-[gd_scene format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://test.tres" type="TileSet" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 31.5, 24.5 )
 
 [node name="Node2D" type="Node2D"]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 489, 222 )
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( -0.5, 7.5 )
+shape = SubResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+format = 1
+tile_data = PoolIntArray( 196616, 0, 0, 196619, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327693, 0, 0, 327694, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 524291, 0, 0 )
