@@ -41,6 +41,10 @@ func check_move(delta: float) -> void:
 	var air_mult: float = 1
 	if not on_floor:
 		air_mult = in_air_move_mult
+	if inputXDir == -1:
+		$"AnimatedSprite".set_animation("left_idle")
+	elif inputXDir == 1:
+		$"AnimatedSprite".set_animation("right_idle")
 	if inputXDir != 0:
 		if move_vel == 0 or (xDir != sign(inputXDir)):
 			move_vel = inputXDir * start_move_vel
@@ -103,7 +107,7 @@ func check_shoot(delta):
 		var bullet_inst = bullet.instance()
 		bullet_inst.create(self.global_position, get_global_mouse_position())
 		get_node("/root").add_child(bullet_inst)
-		
+
 func _process(delta: float) -> void:
 	check_move(delta)
 	check_gravity(delta)
