@@ -103,8 +103,7 @@ func check_shoot(delta):
 		var bullet_inst = bullet.instance()
 		bullet_inst.create(self.global_position, get_global_mouse_position())
 		get_node("/root").add_child(bullet_inst)
-
-
+		
 func _process(delta: float) -> void:
 	check_move(delta)
 	check_gravity(delta)

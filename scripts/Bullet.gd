@@ -6,10 +6,8 @@ func create(pos: Vector2, to: Vector2):
 	initial = pos
 	self.global_position = pos
 	var dir = (to - position).normalized()
-	print(to, dir)
 	self.linear_velocity = dir * bullet_speed
 
 func _process(_delta):
 	if (self.global_position - initial).length() > 10000:
-		print(self.global_position)
 		free()
