@@ -316,5 +316,3 @@ animation = "right"
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 tile_set = SubResource( 19 )
-
-[connection signal="body_entered" from="Boss/Area2D" to="Boss" method="_on_Area2D_body_entered"]
