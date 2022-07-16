@@ -22,7 +22,7 @@ export var locations = [
 	preload("res://Locations/3.tscn")
 ]
 
-var bosses = [
+export var bosses = [
 	preload("res://Bosses/Boss1.tscn"),
 	preload("res://Bosses/Boss1.tscn"),
 	preload("res://Bosses/Boss1.tscn"),
