@@ -15,11 +15,10 @@ export var dices = [
 
 export var locations = [
 	preload("res://Locations/1.tscn"),
-	preload("res://Locations/1.tscn"),
 	preload("res://Locations/2.tscn"),
-	preload("res://Locations/4.tscn"),
 	preload("res://Locations/3.tscn"),
-	preload("res://Locations/4.tscn")
+	preload("res://Locations/4.tscn"),
+	preload("res://Locations/5.tscn"),
 ]
 
 export var bosses = [
@@ -28,7 +27,6 @@ export var bosses = [
 	preload("res://Bosses/Boss2.tscn"),
 	preload("res://Bosses/Boss2.tscn"),
 	preload("res://Bosses/Boss3.tscn"),
-	preload("res://Bosses/Boss3.tscn")
 ]
 
 func roll():
@@ -36,6 +34,10 @@ func roll():
 	var dice2 = randi() % 6
 	$"Dice1".set_texture(dices[dice1])
 	$"Dice2".set_texture(dices[dice2])
+
+	if 5 in [dice1, dice2]:
+		yield(get_tree().create_timer(1), "timeout")
+		return roll()
 
 	return [dice1, dice2]
 
