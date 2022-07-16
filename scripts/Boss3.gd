@@ -23,6 +23,13 @@ func check_vmove(delta):
 	move_dir = -sign(dist)
 	position.y += vert_speed * delta * move_dir
 
+func check_drop():
+	if randi() % 250 == 0:
+		var ice_drop = load("res://IceDrop.tscn").instance()
+		ice_drop.position.x = $"../Player".global_position.x
+		$"..".add_child(ice_drop)
+
 func _process(delta):
 	check_move(delta)
 	check_vmove(delta)
+	check_drop()

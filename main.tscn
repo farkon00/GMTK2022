@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://art/player/hearts/Idle.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -39,9 +39,6 @@ extents = Vector2( 19.5, 34 )
 size = 26
 outline_color = Color( 1, 0, 0, 1 )
 font_data = ExtResource( 7 )
-
-[sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 58, 58 )
 
 [sub_resource type="SpriteFrames" id=18]
 animations = [ {
@@ -306,13 +303,6 @@ scroll_active = false
 position = Vector2( 791, 228 )
 script = ExtResource( 6 )
 
-[node name="Collider" type="Area2D" parent="Boss"]
-position = Vector2( 23, 44 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Collider"]
-position = Vector2( -23, -44 )
-shape = SubResource( 17 )
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Boss"]
 position = Vector2( -7, 1 )
 frames = SubResource( 18 )
@@ -328,5 +318,4 @@ shape = SubResource( 20 )
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 tile_set = SubResource( 19 )
 
-[connection signal="body_entered" from="Boss/Collider" to="Boss" method="_on_collide"]
 [connection signal="body_entered" from="Boss/Attack" to="Boss" method="_attack_area_entered"]
