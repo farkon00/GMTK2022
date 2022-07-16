@@ -4,7 +4,7 @@ export var anim_speed = 700
 var finished_anim = false
 var rolling_back = false
 
-var dices = [
+export var dices = [
 	preload("res://art/dice/1.png"),
 	preload("res://art/dice/2.png"),
 	preload("res://art/dice/3.png"),
@@ -13,7 +13,7 @@ var dices = [
 	preload("res://art/dice/6.png")
 ]
 
-var locations = [
+export var locations = [
 	preload("res://Locations/1.tscn"),
 	preload("res://Locations/1.tscn"),
 	preload("res://Locations/2.tscn"),
