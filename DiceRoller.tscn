@@ -13,3 +13,12 @@ texture = ExtResource( 1 )
 [node name="Dice2" type="Sprite" parent="."]
 position = Vector2( 722, 300 )
 texture = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+light_mask = 0
+margin_left = -367.0
+margin_top = -1.0
+margin_right = 1305.0
+margin_bottom = 603.0
+color = Color( 0.270588, 0.270588, 0.270588, 1 )

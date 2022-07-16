@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 13 )
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Bullet" type="RigidBody2D"]
 gravity_scale = 0.0
 contacts_reported = 10
 contact_monitor = true

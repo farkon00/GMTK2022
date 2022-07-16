@@ -25,7 +25,11 @@ func shoot_at_player():
 	get_node("/root").add_child(bullet_inst)
 
 func die():
-	print("hyper gacha")
+	$"../Player".start_transition()
+	var roller = load("res://DiceRoller.tscn").instance()
+	roller.position.y = -600
+	$"..".add_child(roller)
+	queue_free()
 
 func damage():
 	hp -= 1
@@ -41,7 +45,7 @@ func _process(delta):
 	if abs(point.x - position.x) < 30 and abs(point.y - position.y) < 30 and not waiting_for_point:
 		waiting_for_point = true
 		yield(get_tree().create_timer(0.1), "timeout")
-		if randf() < 0.95:
+		if randf() < 0.65:
 			shoot_at_player()
 
 		new_point()

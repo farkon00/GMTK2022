@@ -19,6 +19,8 @@ export var shoot_cooldown: float = 0.2
 
 export var hp = 3
 
+export var initial_position = Vector2(500, 200)
+
 var jump_vel: float = 0
 var move_vel: float = 0
 var jump_completed: float = 0
@@ -34,6 +36,8 @@ var gravity_mult: float = 1
 var jump_req_left: float = 0
 
 var shoot_left: float = 0
+
+var in_transition = false
 
 var bullet: PackedScene = preload("res://Bullet.tscn")
 
@@ -111,7 +115,7 @@ func check_shoot(delta):
 		get_node("/root").add_child(bullet_inst)
 
 func die():
-	print("dead")
+	get_tree().quit()
 
 func damage():
 	hp -= 1
@@ -119,11 +123,19 @@ func damage():
 		die()
 	$"HP".set_text(str(hp))
 
+func start_transition():
+	in_transition = true
+
+func end_transition():
+	in_transition = false
+	position = initial_position
+
 func _ready():
 	add_to_group("Player")
 
 func _process(delta: float) -> void:
-	check_move(delta)
-	check_gravity(delta)
-	check_jump(delta)
-	check_shoot(delta)
+	if not in_transition:
+		check_move(delta)
+		check_gravity(delta)
+		check_jump(delta)
+		check_shoot(delta)

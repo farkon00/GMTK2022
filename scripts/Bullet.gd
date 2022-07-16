@@ -14,6 +14,9 @@ func _area_entered(area: Area2D):
 		area.get_parent().damage()
 		queue_free()
 
+func _ready():
+	add_to_group("Bullet")
+
 func _process(_delta):
 	if (self.global_position - initial).length() > 10000:
 		free()

@@ -8,3 +8,4 @@ func _body_entered(body: Node2D):
 
 func _ready():
 	bullet_speed = 400
+	add_to_group("Bullet")
