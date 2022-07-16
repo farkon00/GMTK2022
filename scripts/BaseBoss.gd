@@ -2,6 +2,14 @@ extends KinematicBody2D
 
 export var hp = 5
 
+func get_current_side() -> String:
+	var dist = global_position.x - $"../Player".global_position.x
+	var move_dir = -sign(dist)
+	if move_dir == 1:
+		return "right"
+	else:
+		return "left"
+
 func die():
 	$"../Player".start_transition()
 	var roller = load("res://DiceRoller.tscn").instance()

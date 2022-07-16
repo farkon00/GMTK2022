@@ -32,16 +32,8 @@ func _on_Area2D_body_entered(body):
 	if body.is_in_group("Player"):
 		body.damage()
 
-func get_current_side() -> String:
-	var dist = global_position.x - $"../Player".global_position.x
-	move_dir = -sign(dist)
-	if move_dir == 1:
-		return "right"
-	else:
-		return "left"
-
 func shoot_at_player():
-	$"AnimatedSprite".set_animation("mouth_" + get_current_side())
+	$"AnimatedSprite".set_animation("mouth_" + .get_current_side())
 	is_shooting = true
 	yield(get_tree().create_timer(0.1), "timeout")
 	var bullet_inst = bullet.instance()

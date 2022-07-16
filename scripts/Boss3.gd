@@ -10,6 +10,7 @@ func _attack_area_entered(body):
 		body.damage()
 
 func check_move(delta):
+	$"AnimatedSprite".set_animation(.get_current_side())
 	var dist = global_position.x - $"../Player".global_position.x
 	if abs(dist) < 30:
 		return
