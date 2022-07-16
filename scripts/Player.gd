@@ -19,7 +19,7 @@ export var shoot_cooldown: float = 0.2
 
 export var hp = 3
 
-export var initial_position = Vector2(500, 200)
+export var initial_position = Vector2(500, 100)
 
 var jump_vel: float = 0
 var move_vel: float = 0

@@ -29,7 +29,6 @@ func _floor_entered(area):
 		on_floor = true
 
 func _on_Area2D_body_entered(body):
-	print("body entered")
 	if body.is_in_group("Player"):
 		body.damage()
 

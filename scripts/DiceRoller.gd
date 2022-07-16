@@ -14,7 +14,12 @@ var dices = [
 ]
 
 var locations = [
-	preload("res://Locations/1.tscn")
+	preload("res://Locations/1.tscn"),
+	preload("res://Locations/1.tscn"),
+	preload("res://Locations/1.tscn"),
+	preload("res://Locations/2.tscn"),
+	preload("res://Locations/2.tscn"),
+	preload("res://Locations/2.tscn")
 ]
 
 var bosses = [
@@ -58,7 +63,7 @@ func _process(delta):
 
 		yield(get_tree().create_timer(3), "timeout")
 
-		$"..".add_child(locations[0].instance())
+		$"..".add_child(locations[dices[0]].instance())
 		$"..".add_child(bosses[dices[1]].instance())
 		$"../Player".end_transition()
 
