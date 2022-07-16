@@ -6,8 +6,8 @@ var move_dir = 0
 
 func check_move(delta):
 	var dist = global_position.x - $"../Player".global_position.x
-    if abs(dist) < 30:
-        return
+	if abs(dist) < 30:
+		return
 	move_dir = -sign(dist)
 	position.x += speed * delta * move_dir
 
