@@ -18,17 +18,24 @@ var locations = [
 ]
 
 var bosses = [
-	preload("res://Bosses/boss1.tscn")
+	preload("res://Bosses/boss1.tscn"),
+	preload("res://Bosses/boss1.tscn"),
+	preload("res://Bosses/boss1.tscn"),
+	preload("res://Bosses/boss2.tscn"),
+	preload("res://Bosses/boss2.tscn"),
+	preload("res://Bosses/boss2.tscn")
 ]
 
 func roll():
-	randomize()
 	var dice1 = randi() % 6
 	var dice2 = randi() % 6
 	$"Dice1".set_texture(dices[dice1])
 	$"Dice2".set_texture(dices[dice2])
 
 	return [dice1, dice2]
+
+func _ready():
+	randomize()
 
 func _process(delta):
 	if rolling_back:
@@ -47,13 +54,13 @@ func _process(delta):
 
 		yield(get_tree().create_timer(3), "timeout")
 
-		roll()
+		dices = roll()
 		$"../TileMap".free()
 
 		yield(get_tree().create_timer(3), "timeout")
 
 		$"..".add_child(locations[0].instance())
-		$"..".add_child(bosses[0].instance())
+		$"..".add_child(bosses[dices[1]].instance())
 		$"../Player".end_transition()
 
 		rolling_back = true
