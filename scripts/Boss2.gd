@@ -29,6 +29,7 @@ func _floor_entered(area):
 		on_floor = true
 
 func _on_Area2D_body_entered(body):
+	print("body entered")
 	if body.is_in_group("Player"):
 		body.damage()
 
@@ -90,6 +91,7 @@ func check_shoot():
 
 func _ready():
 	randomize()
+	var __ = $"../Floor".connect("area_entered", self, "_floor_entered")
 
 func _process(delta):
 	check_gravity(delta)

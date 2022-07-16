@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var hp = 20
+export var hp = 5
 
 func die():
 	$"../Player".start_transition()

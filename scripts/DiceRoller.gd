@@ -18,12 +18,12 @@ var locations = [
 ]
 
 var bosses = [
-	preload("res://Bosses/boss1.tscn"),
-	preload("res://Bosses/boss1.tscn"),
-	preload("res://Bosses/boss1.tscn"),
-	preload("res://Bosses/boss2.tscn"),
-	preload("res://Bosses/boss2.tscn"),
-	preload("res://Bosses/boss2.tscn")
+	preload("res://Bosses/Boss1.tscn"),
+	preload("res://Bosses/Boss1.tscn"),
+	preload("res://Bosses/Boss1.tscn"),
+	preload("res://Bosses/Boss2.tscn"),
+	preload("res://Bosses/Boss2.tscn"),
+	preload("res://Bosses/Boss2.tscn")
 ]
 
 func roll():
@@ -36,6 +36,8 @@ func roll():
 
 func _ready():
 	randomize()
+	for i in get_tree().get_nodes_in_group("Bullet"):
+		i.queue_free()
 
 func _process(delta):
 	if rolling_back:
@@ -48,9 +50,6 @@ func _process(delta):
 	elif not finished_anim:
 		position.y = 0
 		finished_anim = true
-
-		for i in get_tree().get_nodes_in_group("Bullet"):
-			i.queue_free()
 
 		yield(get_tree().create_timer(3), "timeout")
 

@@ -1,63 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://scripts/BossUnpacker.gd" type="Script" id=1]
-[ext_resource path="res://art/Boss2/Left.png" type="Texture" id=2]
-[ext_resource path="res://art/Boss2/Idle.png" type="Texture" id=3]
-[ext_resource path="res://art/Boss2/MouthLeft.png" type="Texture" id=4]
-[ext_resource path="res://art/Boss2/MouthRight.png" type="Texture" id=5]
-[ext_resource path="res://scripts/Boss2.gd" type="Script" id=6]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 42, 36 )
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "mouth_left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "mouth_right",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 492, 18.5 )
 
 [node name="Unpacker" type="Node2D"]
 script = ExtResource( 1 )
-
-[node name="Boss" type="KinematicBody2D" parent="."]
-position = Vector2( 223, 463 )
-script = ExtResource( 6 )
-
-[node name="Area2D" type="Area2D" parent="Boss"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Area2D"]
-position = Vector2( -26, -47 )
-shape = SubResource( 1 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Boss"]
-position = Vector2( -30, -43 )
-frames = SubResource( 2 )
-animation = "mouth_right"
-
-[node name="Floor" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2( 523, 561.5 )
-shape = SubResource( 3 )
-
-[connection signal="body_entered" from="Boss/Area2D" to="Boss" method="_on_Area2D_body_entered"]
