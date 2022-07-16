@@ -30,6 +30,10 @@ config/name="GMTK2022"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1064
+
 [input]
 
 jump={

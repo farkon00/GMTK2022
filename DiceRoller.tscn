@@ -7,9 +7,9 @@
 script = ExtResource( 2 )
 
 [node name="Dice1" type="Sprite" parent="."]
-position = Vector2( 288, 300 )
+position = Vector2( 274, 300 )
 texture = ExtResource( 1 )
 
 [node name="Dice2" type="Sprite" parent="."]
-position = Vector2( 736, 300 )
+position = Vector2( 722, 300 )
 texture = ExtResource( 1 )

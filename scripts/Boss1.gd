@@ -21,6 +21,7 @@ func new_point():
 func shoot_at_player():
 	var bullet_inst = bullet.instance()
 	bullet_inst.create(global_position, $"../Player".position)
+	bullet_inst.get_node("ColorRect").color = Color(128, 0, 128)
 	get_node("/root").add_child(bullet_inst)
 
 func die():
