@@ -9,14 +9,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "right_idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "left_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "right_idle",
 "speed": 5.0
 } ]
 
@@ -36,15 +36,15 @@ extents = Vector2( 97, 68 )
 
 [node name="Node2D" type="Node2D"]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 489, 222 )
 script = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 1 )
 animation = "right_idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( -1, 8 )
 shape = SubResource( 2 )
 
@@ -56,6 +56,7 @@ tile_data = PoolIntArray( 196619, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0
 [node name="Boss" type="KinematicBody2D" parent="."]
 position = Vector2( 95, 68 )
 script = ExtResource( 6 )
+speed = null
 
 [node name="Sprite" type="AnimatedSprite" parent="Boss"]
 scale = Vector2( 0.60625, 0.421875 )
