@@ -2,7 +2,7 @@
 
 [ext_resource path="res://art/player/hearts/Idle.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
-[ext_resource path="res://Locations/2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Locations/3.tscn" type="PackedScene" id=3]
 [ext_resource path="res://art/player/hearts/Left.png" type="Texture" id=4]
 [ext_resource path="res://ARCADECLASSIC.TTF" type="DynamicFontData" id=7]
 [ext_resource path="res://Bosses/Boss1.tscn" type="PackedScene" id=14]
@@ -57,7 +57,8 @@ meta_underlined = false
 text = "3"
 scroll_active = false
 
-[node name="TileMap" parent="." instance=ExtResource( 3 )]
-
 [node name="Boss" parent="." instance=ExtResource( 14 )]
 position = Vector2( 171, 158 )
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 0, 3, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 4, 0, 65536, 7, 0, 65554, 7, 0, 131072, 7, 0, 131090, 7, 0, 196608, 7, 0, 196615, 6, 0, 196616, 0, 0, 196617, 5, 0, 196626, 7, 0, 262144, 7, 0, 262159, 3, 0, 262160, 5, 0, 262162, 7, 0, 327680, 7, 0, 327682, 6, 0, 327683, 0, 0, 327684, 5, 0, 327693, 3, 0, 327694, 0, 0, 327695, 1, 0, 327698, 7, 0, 393216, 7, 0, 393228, 6, 0, 393229, 1, 0, 393234, 7, 0, 458752, 7, 0, 458756, 6, 0, 458757, 5, 0, 458770, 7, 0, 524288, 7, 0, 524302, 6, 0, 524303, 0, 0, 524304, 5, 0, 524306, 7, 0, 589824, 7, 0, 589842, 7, 0, 655360, 2, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 1, 0 )

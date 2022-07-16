@@ -16,10 +16,10 @@ var dices = [
 var locations = [
 	preload("res://Locations/1.tscn"),
 	preload("res://Locations/1.tscn"),
-	preload("res://Locations/1.tscn"),
 	preload("res://Locations/2.tscn"),
 	preload("res://Locations/2.tscn"),
-	preload("res://Locations/2.tscn")
+	preload("res://Locations/3.tscn"),
+	preload("res://Locations/3.tscn")
 ]
 
 var bosses = [
