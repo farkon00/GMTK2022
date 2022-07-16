@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "RigidBody2D",
+"class": "Bullet",
+"language": "GDScript",
+"path": "res://scripts/Bullet.gd"
+}, {
+"base": "RigidBody2D",
+"class": "EnemyBullet",
+"language": "GDScript",
+"path": "res://scripts/EnemyBullet.gd"
+} ]
+_global_script_class_icons={
+"Bullet": "",
+"EnemyBullet": ""
+}
+
 [application]
 
 config/name="GMTK2022"

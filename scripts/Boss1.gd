@@ -7,7 +7,9 @@ var initial_distance: float = 0
 var speed_mult: float = 1
 var waiting_for_point = false
 
-var bullet: PackedScene = preload("res://Bullet.tscn")
+export var hp = 20
+
+var bullet: PackedScene = preload("res://EnemyBullet.tscn")
 
 func new_point():
 	point = Vector2.ZERO
@@ -21,15 +23,24 @@ func shoot_at_player():
 	bullet_inst.create(global_position, $"../Player".position)
 	get_node("/root").add_child(bullet_inst)
 
+func die():
+	print("hyper gacha")
+
+func damage():
+	hp -= 1
+	if hp <= 0:
+		die()
+
 func _ready():
 	randomize()
+	add_to_group("Boss")
 	new_point()
 
 func _process(delta):
 	if abs(point.x - position.x) < 30 and abs(point.y - position.y) < 30 and not waiting_for_point:
 		waiting_for_point = true
-		yield(get_tree().create_timer(0.2), "timeout")
-		if randi() % 3 == 0:
+		yield(get_tree().create_timer(0.1), "timeout")
+		if randf() < 0.95:
 			shoot_at_player()
 
 		new_point()

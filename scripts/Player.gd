@@ -17,6 +17,8 @@ export var jump_req_time: float = 0.2
 
 export var shoot_cooldown: float = 0.2
 
+export var hp = 3
+
 var jump_vel: float = 0
 var move_vel: float = 0
 var jump_completed: float = 0
@@ -107,6 +109,18 @@ func check_shoot(delta):
 		var bullet_inst = bullet.instance()
 		bullet_inst.create(self.global_position, get_global_mouse_position())
 		get_node("/root").add_child(bullet_inst)
+
+func die():
+	print("dead")
+
+func damage():
+	hp -= 1
+	if hp <= 0:
+		die()
+	$"HP".set_text(str(hp))
+
+func _ready():
+	add_to_group("Player")
 
 func _process(delta: float) -> void:
 	check_move(delta)
