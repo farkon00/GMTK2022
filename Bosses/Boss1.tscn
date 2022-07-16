@@ -7,7 +7,7 @@
 [ext_resource path="res://art/Boss1/Effect1.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 78, 73 )
+extents = Vector2( 66.5, 55 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
@@ -48,4 +48,5 @@ animation = "idle"
 position = Vector2( -12, 115 )
 scale = Vector2( 0.34375, 0.34375 )
 frames = SubResource( 7 )
+frame = 1
 playing = true

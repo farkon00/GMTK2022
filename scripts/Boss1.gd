@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "BaseBoss.gd"
 
 export var speed: float = 200
 
@@ -6,8 +6,6 @@ var point = Vector2.ZERO
 var initial_distance: float = 0
 var speed_mult: float = 1
 var waiting_for_point = false
-
-export var hp = 20
 
 var bullet: PackedScene = preload("res://EnemyBullet.tscn")
 
@@ -24,21 +22,8 @@ func shoot_at_player():
 	bullet_inst.get_node("ColorRect").color = Color(128, 0, 128)
 	get_node("/root").add_child(bullet_inst)
 
-func die():
-	$"../Player".start_transition()
-	var roller = load("res://DiceRoller.tscn").instance()
-	roller.position.y = -600
-	$"..".add_child(roller)
-	queue_free()
-
-func damage():
-	hp -= 1
-	if hp <= 0:
-		die()
-
 func _ready():
-	randomize()
-	add_to_group("Boss")
+	._ready()
 	new_point()
 
 func _process(delta):
