@@ -17,18 +17,18 @@ export var locations = [
 	preload("res://Locations/1.tscn"),
 	preload("res://Locations/1.tscn"),
 	preload("res://Locations/2.tscn"),
-	preload("res://Locations/2.tscn"),
+	preload("res://Locations/4.tscn"),
 	preload("res://Locations/3.tscn"),
-	preload("res://Locations/3.tscn")
+	preload("res://Locations/4.tscn")
 ]
 
 export var bosses = [
 	preload("res://Bosses/Boss1.tscn"),
 	preload("res://Bosses/Boss1.tscn"),
-	preload("res://Bosses/Boss1.tscn"),
 	preload("res://Bosses/Boss2.tscn"),
 	preload("res://Bosses/Boss2.tscn"),
-	preload("res://Bosses/Boss2.tscn")
+	preload("res://Bosses/Boss3.tscn"),
+	preload("res://Bosses/Boss3.tscn")
 ]
 
 func roll():
