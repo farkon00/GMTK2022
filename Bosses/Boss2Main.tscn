@@ -7,7 +7,7 @@
 [ext_resource path="res://scripts/Boss2.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 66, 58 )
+extents = Vector2( 58, 58 )
 
 [sub_resource type="SpriteFrames" id=18]
 animations = [ {
