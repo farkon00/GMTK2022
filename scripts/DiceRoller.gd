@@ -70,7 +70,7 @@ func _process(delta):
 
 		var res = yield(roll(), "completed")
 		if not is_starter:
-			$"../TileMap".free()
+			$"../TileMap".queue_free()
 
 		yield(get_tree().create_timer(3), "timeout")
 
@@ -80,8 +80,8 @@ func _process(delta):
 			$"../Player".end_transition()
 		else:
 			var player = load("res://Player.tscn").instance()
+			$"..".add_child(player)
 			player.start_transition()
 			player.end_transition()
-			$"..".add_child(player)
 
 		rolling_back = true

@@ -5,4 +5,4 @@ func _process(_delta):
 		var roller = load("res://DiceRoller.tscn").instance()
 		roller.is_starter = true
 		$"..".add_child(roller)
-		free()
+		queue_free()

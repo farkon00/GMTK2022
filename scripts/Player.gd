@@ -133,6 +133,7 @@ func start_transition():
 	in_transition = true
 
 func end_transition():
+	move_decr = 800 if $"../TileMap".is_in_group("Loc3") else 3500
 	in_transition = false
 	position = initial_position
 

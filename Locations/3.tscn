@@ -213,7 +213,7 @@ resource_local_to_scene = true
 } ]
 7/z_index = 0
 
-[node name="TileMap" type="TileMap"]
+[node name="TileMap" type="TileMap" groups=["Loc3"]]
 tile_set = SubResource( 14 )
 cell_size = Vector2( 56, 56 )
 cell_quadrant_size = 56

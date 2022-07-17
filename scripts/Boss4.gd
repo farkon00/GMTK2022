@@ -45,7 +45,7 @@ func check_beam():
 		$"..".add_child(new_beam)
 		mode = 1 if randi() % 3 == 0 else -1
 		yield(get_tree().create_timer(0.7), "timeout")
-		new_beam.free()
+		new_beam.queue_free()
 
 func check_move(delta):
 	$"AnimatedSprite".set_animation(.get_current_side())
@@ -71,7 +71,7 @@ func check_aura():
 		$"..".add_child(new_aura)
 		mode = -1 if randi() % 3 == 0 else 1
 		yield(get_tree().create_timer(0.7), "timeout")
-		new_aura.free()
+		new_aura.queue_free()
 
 func _ready():
 	._ready()

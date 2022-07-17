@@ -19,4 +19,4 @@ func _ready():
 
 func _process(_delta):
 	if (self.global_position - initial).length() > 10000:
-		free()
+		queue_free()
