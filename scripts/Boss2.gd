@@ -81,7 +81,7 @@ func check_shoot():
 		shoot_at_player()
 
 func _ready():
-	.ready()
+	._ready()
 	var __ = $"../Floor".connect("area_entered", self, "_floor_entered")
 
 func _process(delta):

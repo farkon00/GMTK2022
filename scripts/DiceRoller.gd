@@ -23,10 +23,10 @@ export var locations = [
 
 export var bosses = [
 	preload("res://Bosses/Boss1.tscn"),
-	preload("res://Bosses/Boss1.tscn"),
-	preload("res://Bosses/Boss2.tscn"),
 	preload("res://Bosses/Boss2.tscn"),
 	preload("res://Bosses/Boss3.tscn"),
+	preload("res://Bosses/Boss4.tscn"),
+	preload("res://Bosses/Boss5.tscn"),
 ]
 
 func roll():
@@ -60,13 +60,13 @@ func _process(delta):
 
 		yield(get_tree().create_timer(3), "timeout")
 
-		dices = roll()
+		var res = roll()
 		$"../TileMap".free()
 
 		yield(get_tree().create_timer(3), "timeout")
 
-		$"..".add_child(locations[dices[0]].instance())
-		$"..".add_child(bosses[dices[1]].instance())
+		$"..".add_child(locations[res[0]].instance())
+		$"..".add_child(bosses[res[1]].instance())
 		$"../Player".end_transition()
 
 		rolling_back = true

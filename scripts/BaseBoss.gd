@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var hp = 5
+export var hp = 15
 
 func get_current_side() -> String:
 	var dist = global_position.x - $"../Player".global_position.x
