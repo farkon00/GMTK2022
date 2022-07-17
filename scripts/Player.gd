@@ -154,6 +154,7 @@ func start_transition():
 func end_transition():
 	if hp <= 0:
 		hp = 3
+		$"HP".set_text(str(hp))
 	move_decr = 800 if $"../TileMap".is_in_group("Loc3") else 3500
 	in_transition = false
 	position = initial_position
