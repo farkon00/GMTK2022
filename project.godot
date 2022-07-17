@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [display]
 
 window/size/width=1064
+window/size/resizable=false
 
 [input]
 
