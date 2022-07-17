@@ -3,6 +3,7 @@ extends Node2D
 export var anim_speed = 700
 var finished_anim = false
 var rolling_back = false
+var is_starter = false
 
 export var dices = [
 	preload("res://art/dice/1.png"),
@@ -61,12 +62,21 @@ func _process(delta):
 		yield(get_tree().create_timer(3), "timeout")
 
 		var res = roll()
-		$"../TileMap".free()
+		if not is_starter:
+			$"../TileMap".free()
+		else:
+			$"/root/Node2D".free()
 
 		yield(get_tree().create_timer(3), "timeout")
 
 		$"..".add_child(locations[res[0]].instance())
 		$"..".add_child(bosses[res[1]].instance())
-		$"../Player".end_transition()
+		if not is_starter:
+			$"../Player".end_transition()
+		else:
+			var player = load("res://PLayer.tscn").instance()
+			player.start_transition()
+			player.end_transition()
+			$"..".add_child(player)
 
 		rolling_back = true
