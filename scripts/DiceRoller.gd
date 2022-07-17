@@ -41,7 +41,11 @@ func roll():
 	$"Dice2".set_texture(dices[dice2])
 
 	if 5 in [dice1, dice2]:
+		set_text("6 is reroll")
 		return roll()
+
+	if $"Text".get_text() == "6 is reroll":
+		set_text("")
 
 	return [dice1, dice2]
 
