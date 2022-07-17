@@ -61,7 +61,6 @@ func check_move(delta):
 	position.y += vert_speed * delta * move_dir
 
 func check_aura():
-	print(global_position.distance_to($"../Player".global_position))
 	if global_position.distance_to($"../Player".global_position) < 130 and randi() % 100 == 0:
 		mode = 0
 		yield(get_tree().create_timer(0.5), "timeout")
