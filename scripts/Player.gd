@@ -41,6 +41,20 @@ var in_transition = false
 
 var bullet: PackedScene = preload("res://Bullet.tscn")
 
+var audio_player = preload("res://AudioPlayer.tscn") 
+
+var jump_sound = preload("res://Sounds/Jump.wav")
+var hit_sound = preload("res://Sounds/Hit.wav")
+var shoot_sound = preload("res://Sounds/Shoot.wav")
+var death_sound = preload("res://Sounds/Death.wav")
+var win_sound = preload("res://Sounds/Win.wav")
+
+func play_sound(sound):
+	var player = audio_player.instance()
+	player.set_stream(sound)
+	add_child(player)
+	player.play()
+
 func check_move(delta: float) -> void:
 	var inputXDir = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 	var xDir = sign(move_vel)
@@ -79,6 +93,7 @@ func check_gravity(delta: float) -> void:
 func check_jump(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") or jump_req_left > 0:
 		if on_floor:
+			play_sound(jump_sound)
 			jump_mul = jump_scaler[0]
 			jump_completed = 0
 			jump_vel = jump_height/jump_time*jump_mul
@@ -109,30 +124,36 @@ func check_jump(delta: float) -> void:
 func check_shoot(delta):
 	shoot_left -= delta
 	if Input.is_action_pressed("shoot") and shoot_left < 0:
+		play_sound(shoot_sound)
 		shoot_left = shoot_cooldown
 		var bullet_inst = bullet.instance()
 		bullet_inst.create(self.global_position, get_global_mouse_position())
 		get_node("/root").add_child(bullet_inst)
 
 func die():
+	play_sound(death_sound)
 	$"../Boss".queue_free()
 	start_transition()
 	var roller = load("res://DiceRoller.tscn").instance()
 	roller.position.y = -600
 	roller.set_text("Game Over")
-	hp = 3
 	$"..".add_child(roller)
 
 func damage():
+	play_sound(hit_sound)
 	hp -= 1
 	if hp <= 0:
 		die()
 	$"HP".set_text(str(hp))
 
 func start_transition():
+	if hp > 0:
+		play_sound(win_sound)
 	in_transition = true
 
 func end_transition():
+	if hp <= 0:
+		hp = 3
 	move_decr = 800 if $"../TileMap".is_in_group("Loc3") else 3500
 	in_transition = false
 	position = initial_position
