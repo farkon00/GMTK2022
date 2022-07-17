@@ -30,14 +30,17 @@ export var bosses = [
 	preload("res://Bosses/Boss5.tscn"),
 ]
 
+func set_text(text: String):
+	$"Text".set_text(text)
+
 func roll():
+	yield(get_tree().create_timer(1), "timeout")
 	var dice1 = randi() % 6
 	var dice2 = randi() % 6
 	$"Dice1".set_texture(dices[dice1])
 	$"Dice2".set_texture(dices[dice2])
 
 	if 5 in [dice1, dice2]:
-		yield(get_tree().create_timer(1), "timeout")
 		return roll()
 
 	return [dice1, dice2]
@@ -59,13 +62,11 @@ func _process(delta):
 		position.y = 0
 		finished_anim = true
 
-		yield(get_tree().create_timer(3), "timeout")
+		yield(get_tree().create_timer(2), "timeout")
 
-		var res = roll()
+		var res = yield(roll(), "completed")
 		if not is_starter:
 			$"../TileMap".free()
-		else:
-			$"/root/Node2D".free()
 
 		yield(get_tree().create_timer(3), "timeout")
 
@@ -74,7 +75,7 @@ func _process(delta):
 		if not is_starter:
 			$"../Player".end_transition()
 		else:
-			var player = load("res://PLayer.tscn").instance()
+			var player = load("res://Player.tscn").instance()
 			player.start_transition()
 			player.end_transition()
 			$"..".add_child(player)

@@ -115,7 +115,13 @@ func check_shoot(delta):
 		get_node("/root").add_child(bullet_inst)
 
 func die():
-	get_tree().quit()
+	$"../Boss".queue_free()
+	start_transition()
+	var roller = load("res://DiceRoller.tscn").instance()
+	roller.position.y = -600
+	roller.set_text("Game Over")
+	hp = 3
+	$"..".add_child(roller)
 
 func damage():
 	hp -= 1
